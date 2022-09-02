@@ -1,0 +1,28 @@
+.DS_Store
+.Rhistory
+
+
+# Example code in package build process
+*-Ex.R
+
+# RStudio files
+.Rproj.user/
+.Rproj.user/*
+
+# RData
+.RData
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+#*.Rproj
+.Rproj.user
+
+tmp
+tmp/*
+
+data/*
+
+.env
+
