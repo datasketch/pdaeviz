@@ -8,8 +8,9 @@ library(hgchmagic)
 library(homodatum)
 library(pdaeviz)
 library(pseudoviz)
+library(devtools)
 
-
+devtools::load_all()
 
 custom_css <- "
 #debug{
@@ -45,7 +46,12 @@ ui <- panelsPage(styles = custom_css,
                          uiOutput("resource_info"),
                          br()
                        ),
-                       footer = ""),
+                       footer = tags$a(
+                         href="https://www.datasketch.co", target="blank",
+                         img(src= 'ds_logo.svg', align = "left",
+                             width = 180, height = 150)
+                       )
+                 ),
                  panel(title = "Gráficos",
                        #header_right =
                        body = div(
@@ -294,14 +300,14 @@ server <-  function(input, output, session) {
       out <- NULL
       fun <- funs[grepl(input$viz_selection,funs)]
       if(length(fun) != 0){
-          opts <- list(
-            dataLabels_show = TRUE,
-            drop_na = TRUE
-            #color_by = names(dd)[1]
-          )
-          d <- f_viz$data
-          names(d) <- f_viz$dic$label
-          viz <- do.call(fun, list(d, opts = opts))
+        opts <- list(
+          dataLabels_show = TRUE,
+          drop_na = TRUE
+          #color_by = names(dd)[1]
+        )
+        d <- f_viz$data
+        names(d) <- f_viz$dic$label
+        viz <- do.call(fun, list(d, opts = opts))
         out <- renderHighchart(viz)
       }
     }
