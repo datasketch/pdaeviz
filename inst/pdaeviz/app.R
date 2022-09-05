@@ -94,7 +94,7 @@ server <-  function(input, output, session) {
   #&resource=/dataset/embarcaciones-atendidas-segun-el-tipo-de-mantenimiento-brindado/resource/a92d7c50-837a-483f-b736-6f1c423d4673&origin=https://datosabiertos.gob.ec
 
 
-  url_param_defaults <- list("data" = pdae_rscr_sample())
+  url_param_defaults <- list("data" = pdaeviz::pdae_rscr_sample())
   str(url_param_defaults$data)
   message(url_param_defaults$data)
 
@@ -127,9 +127,9 @@ server <-  function(input, output, session) {
     #what <- url_params(url_param_defaults, session)
     url_params <- url_params(url_param_defaults, session)
     url <- url_params$inputs$data
-    if(!is_pdae_resource(url))
+    if(!pdaeviz::is_pdae_resource(url))
       return()
-    pdae_read_data(url)
+    pdaeviz::pdae_read_data(url)
   })
 
   output$data_info <- renderUI({

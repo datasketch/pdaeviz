@@ -67,6 +67,7 @@ pdae_read_data <- function(url){
   info
 }
 
+#' @export
 pdae_rscr_sample <- function(){
   pdaeviz::all_resources |>
     dplyr::sample_n(1) |>
