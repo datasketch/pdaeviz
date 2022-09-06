@@ -52,6 +52,8 @@ RUN Rscript -e 'remotes::install_github("datasketch/pseudoviz@e1372fa089d9963fef
 
 RUN Rscript -e 'remotes::install_github("datasketch/hgchmagic@1c2126cb2722071855fa7133bffcd32a805399e1")'
 
+RUN Rscript -e 'remotes::install_version("readODS", upgrade="never", version = "1.7.0")'
+
 RUN mkdir /build_zone
 
 ADD . /build_zone
