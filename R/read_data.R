@@ -76,7 +76,7 @@ pdae_rscr_sample <- function(){
 
 
 
-
+#' @export
 is_pdae_resource <- function(url){
   grepl("https://datosabiertos.gob.ec", url, fixed = TRUE)
 }
