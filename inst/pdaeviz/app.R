@@ -12,10 +12,9 @@ library(devtools)
 library(ckanr)
 library(dotenv)
 
-dotenv::load_dot_env()
+# dotenv::load_dot_env()
 ckanr::ckanr_setup("https://datosabiertos.gob.ec",
                      key = Sys.getenv("CKAN_API_TOKEN"))
-
 
 custom_css <- "
 #debug{
