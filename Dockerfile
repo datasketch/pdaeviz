@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 
 ARG GITHUB_PAT
 
-RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl', Ncpus = 4)" >> /usr/local/lib/R/etc/Rprofile.site
+RUN echo "options(download.file.method = 'libcurl', Ncpus = 4)" >> /usr/local/lib/R/etc/Rprofile.site
 
 RUN R -e 'install.packages("remotes")'
 
