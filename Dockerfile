@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
   libjq-dev \
   libharfbuzz-dev \
   libfribidi-dev \
+  libglpk-dev \
   && rm -rf /var/lib/apt/lists/*
 
 ARG GITHUB_PAT
